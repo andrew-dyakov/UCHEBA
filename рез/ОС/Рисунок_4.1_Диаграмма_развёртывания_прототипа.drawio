@@ -1,0 +1,57 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Диаграмма прототипа" id="diag3">
+    <mxGraphModel dx="981" dy="1415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="host" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=10;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#666666;" value="Физический хост (Oracle VM VirtualBox 7.x)" vertex="1">
+          <mxGeometry height="520" width="680" x="80" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="vm1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=top;spacingTop=8;" value="ВМ «dyakov-arm»&lt;br&gt;Ubuntu Desktop 24.04 LTS&lt;br&gt;1 vCPU / 4 ГБ RAM / 20 ГБ vdi" vertex="1">
+          <mxGeometry height="160" width="260" x="120" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vm1nic1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="enp0s3 — NAT (DHCP)" vertex="1">
+          <mxGeometry height="28" width="220" x="140" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="vm1nic2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="enp0s8 — Internal Network «intnet»&lt;br&gt;10.11.9.2/24" vertex="1">
+          <mxGeometry height="40" width="220" x="140" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="vm2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;verticalAlign=top;spacingTop=8;" value="ВМ «dyakov-server»&lt;br&gt;Ubuntu Server 24.04 LTS&lt;br&gt;1 vCPU / 8 ГБ RAM / 40 ГБ vdi" vertex="1">
+          <mxGeometry height="160" width="260" x="460" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vm2nic1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=10;" value="enp0s3 — NAT (DHCP)" vertex="1">
+          <mxGeometry height="28" width="220" x="480" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="vm2nic2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=10;" value="enp0s8 — Internal Network «intnet»&lt;br&gt;10.11.9.1/24" vertex="1">
+          <mxGeometry height="40" width="220" x="480" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="intnet" parent="1" style="shape=mxgraph.networks.switch;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Internal Network «intnet»" vertex="1">
+          <mxGeometry height="50" width="100" x="370" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="inet" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" value="Интернет" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="vm1nic2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="intnet" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="vm2nic2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="intnet" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="vm1nic1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" target="inet" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="vm2nic1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" target="inet" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

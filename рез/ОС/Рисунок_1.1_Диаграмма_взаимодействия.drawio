@@ -1,0 +1,50 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Рисунок 1.1" id="diag1">
+    <mxGraphModel dx="2750" dy="1528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="org" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=10;fontStyle=1;fontSize=13;" value="Контур деятельности организации" vertex="1">
+          <mxGeometry height="520" width="760" x="-830" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qa" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="QA-тестировщик" vertex="1">
+          <mxGeometry height="50" width="200" x="-750" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="АРМ тестировщика&lt;br&gt;Ubuntu Desktop 24.04 LTS&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Firefox, Hoppscotch, DBeaver,&lt;br&gt;Python, Git, OpenSSH-клиент&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="-760" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="srv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;" value="Сервер тестирования&lt;br&gt;Ubuntu Server 24.04 LTS&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;OpenProject, PostgreSQL,&lt;br&gt;Docker, dnsmasq, Netdata&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="-760" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ext" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Тестируемый сервис&lt;br&gt;бронирования авиабилетов&lt;br&gt;и отелей (веб/моб.)" vertex="1">
+          <mxGeometry height="90" width="200" x="-310" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Внутренняя сеть 10.11.9.0/24" vertex="1">
+          <mxGeometry height="30" width="760" x="-830" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="qa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" target="arm" value="использует">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="arm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" target="srv" value="SSH (22), TCP 5432,&lt;br&gt;HTTP/HTTPS (80/443)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="arm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="ext" value="HTTP/HTTPS&lt;br&gt;(UI/API тестирование)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-350" y="245" />
+              <mxPoint x="-350" y="323" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="srv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="ext" value="регистрация дефектов">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-350" y="445" />
+              <mxPoint x="-350" y="367" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
