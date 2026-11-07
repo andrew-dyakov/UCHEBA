@@ -350,6 +350,28 @@ WHERE country_id = 1;
 
 
 
+
+CREATE INDEX IF NOT EXISTS idx_customer_order_created_cluster
+ON customer_order (created_at);
+
+
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT *
+FROM customer_order
+WHERE created_at BETWEEN NOW() - INTERVAL '180 days'
+                     AND NOW() - INTERVAL '90 days';
+
+
+
+CLUSTER customer_order USING idx_customer_order_created_cluster;
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT *
+FROM customer_order
+WHERE created_at BETWEEN NOW() - INTERVAL '180 days'
+                     AND NOW() - INTERVAL '90 days';
+
+
+
 CREATE INDEX IF NOT EXISTS idx_customer_order_employee_unused
 ON customer_order (employee_id);
 SELECT
