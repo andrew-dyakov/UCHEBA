@@ -215,18 +215,23 @@ WHERE paid_at IS NULL;
 
 
 
+
+
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
 FROM user_logs
 WHERE ip_address = '192.168.15.1'::inet;
 
-CREATE INDEX IF NOT EXISTS idx_user_logs_ip_hash
+
+CREATE INDEX idx_user_logs_ip_hash
 ON user_logs USING hash (ip_address);
 
+
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
 FROM user_logs
 WHERE ip_address = '192.168.15.1'::inet;
+
 
 
 
